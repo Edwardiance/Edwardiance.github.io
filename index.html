@@ -3,38 +3,33 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Portfolio — Cybersecurity & Software Technician</title>
+<title>Edward</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --red: #e50000;
-    --red2: #ff2222;
-    --red3: #c0000a;
-    --red4: #ff6666;
-    --red5: #7a0000;
+    --p1: #b400ff;
+    --p2: #cc44ff;
+    --p3: #8c00cc;
+    --p4: #dd88ff;
+    --p5: #4a0077;
     --dark: #000000;
     --darker: #050505;
-    --card: rgba(20,0,0,0.72);
-    --border: rgba(229,0,0,0.18);
+    --card: rgba(15,0,25,0.72);
+    --border: rgba(180,0,255,0.18);
     --mono: 'Share Tech Mono', monospace;
     --display: 'Bebas Neue', sans-serif;
     --body: 'Rajdhani', sans-serif;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--dark);
-    color: #f0e0e0;
+    color: #f0e0ff;
     font-family: var(--body);
     overflow-x: hidden;
     min-height: 100vh;
     cursor: crosshair;
   }
-
-  /* ───── ANIMATED CANVAS BACKGROUND ───── */
   #bg-canvas {
     position: fixed;
     top: 0; left: 0;
@@ -42,8 +37,6 @@
     z-index: 0;
     pointer-events: none;
   }
-
-  /* Scanline overlay */
   body::before {
     content: '';
     position: fixed;
@@ -58,8 +51,6 @@
     pointer-events: none;
     z-index: 1;
   }
-
-  /* ───── LAYOUT ───── */
   .wrap {
     position: relative;
     z-index: 2;
@@ -67,8 +58,6 @@
     margin: 0 auto;
     padding: 0 2rem;
   }
-
-  /* ───── NAV ───── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -81,23 +70,19 @@
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(12px);
   }
-
   .nav-logo {
     font-family: var(--display);
     font-size: 1.7rem;
     letter-spacing: 0.12em;
-    color: var(--red);
-    text-shadow: 0 0 18px rgba(229,0,0,0.6);
+    color: var(--p1);
+    text-shadow: 0 0 18px rgba(180,0,255,0.6);
   }
-
   .nav-logo span { color: #fff; }
-
   nav ul {
     list-style: none;
     display: flex;
     gap: 2.2rem;
   }
-
   nav ul a {
     font-family: var(--mono);
     font-size: 0.78rem;
@@ -108,20 +93,17 @@
     transition: color .25s, text-shadow .25s;
     position: relative;
   }
-
   nav ul a::after {
     content: '';
     position: absolute;
     left: 0; bottom: -4px;
     width: 0; height: 1px;
-    background: var(--red);
+    background: var(--p1);
     transition: width .3s;
   }
-
-  nav ul a:hover { color: var(--red2); text-shadow: 0 0 10px rgba(229,0,0,0.5); }
+  nav ul a:hover { color: var(--p2); text-shadow: 0 0 10px rgba(180,0,255,0.5); }
   nav ul a:hover::after { width: 100%; }
 
-  /* ───── HERO ───── */
   #hero {
     min-height: 100vh;
     display: flex;
@@ -129,25 +111,22 @@
     padding-top: 80px;
     position: relative;
   }
-
   .hero-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
   }
-
   .hero-tag {
     font-family: var(--mono);
     font-size: 0.75rem;
-    color: var(--red);
+    color: var(--p1);
     letter-spacing: 0.3em;
     text-transform: uppercase;
     margin-bottom: 1rem;
     opacity: 0;
     animation: fadeUp 0.7s 0.3s forwards;
   }
-
   .hero-name {
     font-family: var(--display);
     font-size: clamp(3.5rem, 7vw, 6.5rem);
@@ -158,32 +137,29 @@
     opacity: 0;
     animation: fadeUp 0.7s 0.5s forwards;
   }
-
-  .hero-name .red-line {
+  .hero-name .purple-line {
     display: block;
-    color: var(--red);
-    text-shadow: 0 0 40px rgba(229,0,0,0.45);
+    color: var(--p1);
+    text-shadow: 0 0 40px rgba(180,0,255,0.55), 0 0 80px rgba(180,0,255,0.2);
   }
-
   .hero-subtitle {
     font-family: var(--body);
     font-size: 1.15rem;
     font-weight: 300;
-    color: #aa8080;
+    color: #9966bb;
     letter-spacing: 0.12em;
     margin-bottom: 2.2rem;
     opacity: 0;
     animation: fadeUp 0.7s 0.7s forwards;
   }
-
   .hero-cta {
     display: inline-flex;
     align-items: center;
     gap: 0.7rem;
     font-family: var(--mono);
     font-size: 0.8rem;
-    color: var(--red2);
-    border: 1px solid var(--red3);
+    color: var(--p2);
+    border: 1px solid var(--p3);
     padding: 0.75rem 1.8rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -195,69 +171,129 @@
     animation: fadeUp 0.7s 0.9s forwards;
     clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
   }
-
   .hero-cta::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--red3);
+    background: var(--p3);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform .35s ease;
     z-index: -1;
   }
-
   .hero-cta:hover { color: #fff; }
   .hero-cta:hover::before { transform: scaleX(1); }
 
-  /* Hex decoration right side */
-  .hero-deco {
+  /* ==================== OKUNAKLILIK İYİLEŞTİRMELERİ ==================== */
+  .section-desc {
+    font-family: var(--body);
+    font-size: 1.12rem;
+    font-weight: 400;
+    color: #bb99dd;
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 3.8rem;
+  }
+
+  .about-text {
+    font-size: 1.12rem;
+    font-weight: 400;
+    color: #d0b0ee;
+    line-height: 1.88;
+  }
+  .about-text strong { color: var(--p2); font-weight: 600; }
+
+  .exp-desc,
+  .tech-desc {
+    font-family: var(--body);
+    font-size: 0.96rem;
+    font-weight: 400;
+    color: #c8a8e0;
+    line-height: 1.78;
+  }
+
+  .contact-intro {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #c8a8e0;
+    line-height: 1.82;
+    margin-bottom: 2.2rem;
+  }
+
+  /* ===================== ORİJİNAL STİLLER (devamı) ===================== */
+  .terminal-window {
+    background: #0d0d0d;
+    border: 1px solid #b400ff33;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 0 40px rgba(180, 0, 255, 0.25),
+                inset 0 0 25px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    animation: terminalFade 1.2s ease forwards;
+  }
+  .terminal-header {
+    background: #1a001f;
+    padding: 10px 14px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    opacity: 0;
-    animation: fadeIn 1.2s 1s forwards;
+    gap: 12px;
+    border-bottom: 1px solid #b400ff22;
   }
-
-  .hex-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 54px);
-    grid-template-rows: repeat(5, 54px);
+  .terminal-dots {
+    display: flex;
+    gap: 7px;
+  }
+  .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+  .red { background: #ff5f57; }
+  .yellow { background: #ffbd2e; }
+  .green { background: #27c93f; }
+  .terminal-title {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: #8855aa;
+    margin-left: 8px;
+    letter-spacing: 0.5px;
+  }
+  .terminal-body {
+    padding: 18px 20px;
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #ccbbdd;
+    background: #050505;
+    min-height: 210px;
+  }
+  .terminal-body .prompt { color: #b400ff; }
+  .terminal-body .symbol { color: #ff44cc; }
+  .terminal-body .command { color: #88ffaa; }
+  .terminal-body .output { color: #aaccff; margin-left: 4px; }
+  .prompt-line {
+    display: flex;
+    align-items: center;
     gap: 6px;
-    transform: rotate(-10deg);
   }
-
-  .hex-cell {
-    background: rgba(229,0,0,0.06);
-    border: 1px solid rgba(229,0,0,0.14);
-    clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
-    transition: background .3s, transform .3s;
-    animation: hexPulse var(--d, 3s) ease-in-out infinite;
-    animation-delay: var(--delay, 0s);
+  .blinking-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background: #b400ff;
+    animation: blink 0.9s step-end infinite;
+    margin-left: 4px;
   }
-
-  .hex-cell:hover {
-    background: rgba(229,0,0,0.3);
-    transform: scale(1.15);
-  }
-
-  @keyframes hexPulse {
-    0%,100% { background: rgba(229,0,0,0.06); }
-    50% { background: rgba(229,0,0,0.18); }
-  }
-
-  /* ───── SECTION COMMON ───── */
   section { padding: 6rem 0; position: relative; }
-
   .section-label {
     font-family: var(--mono);
     font-size: 0.7rem;
-    color: var(--red);
+    color: var(--p1);
     letter-spacing: 0.35em;
     text-transform: uppercase;
     margin-bottom: 0.6rem;
   }
-
   .section-title {
     font-family: var(--display);
     font-size: clamp(2.8rem, 5vw, 4.5rem);
@@ -266,270 +302,160 @@
     line-height: 1;
     margin-bottom: 1rem;
   }
-
-  .section-desc {
-    font-family: var(--body);
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: #997070;
-    max-width: 500px;
-    line-height: 1.7;
-    margin-bottom: 3.5rem;
-  }
-
-  /* Diagonal divider */
   .slash-divider {
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--red5), var(--red), transparent);
+    background: linear-gradient(90deg, var(--p5), var(--p1), transparent);
     margin: 0.8rem 0 2.5rem;
     clip-path: polygon(0 0, 96% 0, 100% 100%, 4% 100%);
   }
-
-  /* ───── ABOUT ───── */
-  #about { background: rgba(8,0,0,0.6); }
-
+  #about { background: rgba(5,0,10,0.6); }
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
   }
-
-  .about-text {
-    font-size: 1.08rem;
-    font-weight: 400;
-    color: #cca0a0;
-    line-height: 1.85;
-  }
-
-  .about-text strong { color: var(--red2); font-weight: 600; }
-
   .stat-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
-
   .stat-card {
     background: var(--card);
     border: 1px solid var(--border);
     padding: 1.5rem;
     clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
     transition: border-color .3s, box-shadow .3s, transform .3s;
-    position: relative;
-    overflow: hidden;
   }
-
-  .stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: linear-gradient(90deg, var(--red), transparent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .4s;
-  }
-
   .stat-card:hover {
-    border-color: var(--red3);
-    box-shadow: 0 0 30px rgba(229,0,0,0.12);
+    border-color: var(--p3);
+    box-shadow: 0 0 30px rgba(180,0,255,0.15);
     transform: translateY(-4px);
   }
-
-  .stat-card:hover::before { transform: scaleX(1); }
-
   .stat-num {
     font-family: var(--display);
     font-size: 2.8rem;
-    color: var(--red);
-    text-shadow: 0 0 20px rgba(229,0,0,0.4);
+    color: var(--p1);
+    text-shadow: 0 0 20px rgba(180,0,255,0.5);
     line-height: 1;
   }
-
   .stat-label {
     font-family: var(--mono);
     font-size: 0.68rem;
-    color: #886060;
+    color: #664488;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-top: 0.3rem;
   }
-
-  /* ───── TECH SECTION ───── */
-  #tech { }
-
   .tech-cols {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.4rem;
   }
-
   .tech-card {
     background: var(--card);
     border: 1px solid var(--border);
     padding: 1.6rem 1.4rem;
     clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
     transition: all .35s;
-    position: relative;
-    overflow: hidden;
   }
-
-  .tech-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 0%, rgba(229,0,0,0.09) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity .4s;
-  }
-
   .tech-card:hover {
-    border-color: rgba(229,0,0,0.5);
-    box-shadow: 0 0 40px rgba(229,0,0,0.14), inset 0 0 20px rgba(229,0,0,0.05);
+    border-color: rgba(180,0,255,0.55);
+    box-shadow: 0 0 40px rgba(180,0,255,0.18);
     transform: translateY(-6px) scale(1.01);
   }
-
-  .tech-card:hover::after { opacity: 1; }
-
   .tech-icon {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     display: block;
-    filter: drop-shadow(0 0 8px rgba(229,0,0,0.4));
   }
-
   .tech-name {
     font-family: var(--display);
     font-size: 1.55rem;
     letter-spacing: 0.08em;
-    color: var(--red2);
+    color: var(--p2);
     margin-bottom: 0.4rem;
   }
-
-  .tech-desc {
-    font-family: var(--body);
-    font-size: 0.88rem;
-    font-weight: 300;
-    color: #886060;
-    line-height: 1.6;
-  }
-
   .tech-badge {
     display: inline-block;
     margin-top: 0.8rem;
     font-family: var(--mono);
     font-size: 0.6rem;
-    color: var(--red);
-    border: 1px solid var(--red5);
+    color: var(--p1);
+    border: 1px solid var(--p5);
     padding: 0.15rem 0.6rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    background: rgba(229,0,0,0.05);
+    background: rgba(180,0,255,0.06);
   }
-
-  /* ───── LINUX SECTION ───── */
-  #linux { background: rgba(8,0,0,0.5); }
-
+  #linux { background: rgba(5,0,10,0.5); }
   .linux-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
   }
-
   .linux-item {
     background: var(--card);
     border: 1px solid var(--border);
     padding: 1.4rem 1rem;
     text-align: center;
-    position: relative;
     clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0% calc(100% - 12px), 0% 12px);
     transition: all .35s;
-    cursor: default;
   }
-
   .linux-item.active-distro {
-    border-color: rgba(229,0,0,0.45);
-    background: rgba(40,0,0,0.7);
+    border-color: rgba(180,0,255,0.5);
+    background: rgba(25,0,40,0.75);
   }
-
   .linux-item:hover {
     transform: translateY(-5px);
-    border-color: var(--red);
-    box-shadow: 0 0 28px rgba(229,0,0,0.18);
+    border-color: var(--p1);
+    box-shadow: 0 0 28px rgba(180,0,255,0.22);
   }
-
   .linux-emoji { font-size: 2rem; display: block; margin-bottom: 0.6rem; }
-
   .linux-name {
     font-family: var(--display);
     font-size: 1.2rem;
-    color: var(--red2);
+    color: var(--p2);
     letter-spacing: 0.08em;
     margin-bottom: 0.3rem;
   }
-
   .linux-sub {
     font-family: var(--mono);
     font-size: 0.6rem;
-    color: #664444;
+    color: #553366;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
-
   .current-badge {
     position: absolute;
     top: -1px; right: -1px;
     font-family: var(--mono);
     font-size: 0.55rem;
     color: #000;
-    background: var(--red);
+    background: var(--p1);
     padding: 0.15rem 0.45rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-
-  /* ───── EXPERTISE ───── */
-  #expertise { }
-
   .exp-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.4rem;
   }
-
   .exp-card {
     background: var(--card);
     border: 1px solid var(--border);
     padding: 2rem;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
     transition: all .35s;
-    position: relative;
-    overflow: hidden;
   }
-
-  .exp-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; right: 0;
-    width: 0; height: 0;
-    border-style: solid;
-    border-width: 0 0 20px 20px;
-    border-color: transparent transparent var(--red5) transparent;
-    transition: border-color .3s;
-  }
-
   .exp-card:hover {
-    border-color: rgba(229,0,0,0.4);
-    box-shadow: 0 0 35px rgba(229,0,0,0.12);
+    border-color: rgba(180,0,255,0.45);
+    box-shadow: 0 0 35px rgba(180,0,255,0.15);
     transform: translateY(-4px);
   }
-
-  .exp-card:hover::before { border-bottom-color: var(--red3); }
-
   .exp-icon { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
-
   .exp-title {
     font-family: var(--display);
     font-size: 1.55rem;
@@ -537,106 +463,67 @@
     letter-spacing: 0.07em;
     margin-bottom: 0.5rem;
   }
-
-  .exp-desc {
-    font-family: var(--body);
-    font-size: 0.92rem;
-    font-weight: 300;
-    color: #886060;
-    line-height: 1.65;
-  }
-
-  /* ───── TIMEZONE SECTION (NEW #5) ───── */
-  #timezone { background: rgba(8,0,0,0.6); }
-
+  #timezone { background: rgba(5,0,10,0.6); }
   .timezone-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
-
   .tz-card {
     background: var(--card);
     border: 1px solid var(--border);
     padding: 2.2rem 2rem;
     clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
     transition: all .35s;
-    position: relative;
-    overflow: hidden;
     text-align: center;
   }
-
   .tz-card:hover {
-    border-color: var(--red3);
-    box-shadow: 0 0 35px rgba(229,0,0,0.18);
+    border-color: var(--p3);
+    box-shadow: 0 0 35px rgba(180,0,255,0.22);
     transform: translateY(-6px);
   }
-
-  .tz-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--red), transparent);
-  }
-
   .tz-label {
     font-family: var(--mono);
     font-size: 0.72rem;
-    color: #886060;
+    color: #664488;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     margin-bottom: 1.2rem;
   }
-
   .tz-time {
     font-family: var(--display);
     font-size: 3.1rem;
-    color: var(--red2);
+    color: var(--p2);
     letter-spacing: 0.05em;
     line-height: 1;
     margin-bottom: 0.4rem;
-    text-shadow: 0 0 25px rgba(229,0,0,0.5);
+    text-shadow: 0 0 25px rgba(180,0,255,0.6);
   }
-
   .tz-zone {
     font-family: var(--mono);
     font-size: 0.95rem;
-    color: #cca0a0;
+    color: #bb99cc;
     letter-spacing: 0.08em;
   }
-
-  /* ───── CONTACT (NOW #6) ───── */
-  #contact { background: rgba(6,0,0,0.55); }
-
+  #contact { background: rgba(4,0,8,0.55); }
   .contact-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: start;
   }
-
-  .contact-intro {
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: #997070;
-    line-height: 1.8;
-    margin-bottom: 2rem;
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
-
-  .contact-links { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 1rem; 
-  }
-
   .contact-link {
     display: flex;
     align-items: center;
     gap: 1rem;
     font-family: var(--mono);
     font-size: 0.82rem;
-    color: #cca0a0;
+    color: #bb99cc;
     text-decoration: none;
     letter-spacing: 0.1em;
     border: 1px solid var(--border);
@@ -645,21 +532,17 @@
     background: var(--card);
     transition: all .3s;
   }
-
   .contact-link:hover {
-    color: var(--red2);
-    border-color: var(--red3);
-    background: rgba(40,0,0,0.7);
-    box-shadow: 0 0 20px rgba(229,0,0,0.12);
+    color: var(--p2);
+    border-color: var(--p3);
+    background: rgba(25,0,40,0.75);
+    box-shadow: 0 0 20px rgba(180,0,255,0.15);
     padding-left: 1.6rem;
   }
-
-  .contact-link .ci { 
-    color: var(--red); 
-    font-size: 1.1rem; 
+  .contact-link .ci {
+    color: var(--p1);
+    font-size: 1.1rem;
   }
-
-  /* ───── FOOTER + SCROLL INDICATOR ───── */
   footer {
     border-top: 1px solid var(--border);
     padding: 3rem 0 2rem;
@@ -667,18 +550,14 @@
     position: relative;
     z-index: 2;
   }
-
   footer p {
     font-family: var(--mono);
     font-size: 0.65rem;
-    color: #443030;
+    color: #331155;
     letter-spacing: 0.2em;
     text-transform: uppercase;
   }
-
-  footer p span { color: var(--red5); }
-
-  /* Scroll Down Indicator */
+  footer p span { color: var(--p5); }
   .scroll-down {
     position: fixed;
     bottom: 35px;
@@ -692,36 +571,19 @@
     opacity: 0.75;
     pointer-events: none;
   }
-
   .scroll-text {
     font-family: var(--mono);
     font-size: 0.68rem;
-    color: var(--red);
+    color: var(--p1);
     letter-spacing: 0.35em;
     text-transform: uppercase;
     animation: scrollGlitch 4s infinite steps(2);
-    text-shadow: 0 0 12px rgba(229,0,0,0.6);
   }
-
   .scroll-arrow {
     font-size: 1.6rem;
-    color: var(--red2);
+    color: var(--p2);
     animation: bounceArrow 2s infinite ease-in-out;
-    text-shadow: 0 0 15px rgba(229,0,0,0.7);
-    display: block;
   }
-
-  @keyframes scrollGlitch {
-    0%, 100% { opacity: 0.85; }
-    50% { opacity: 0.4; }
-  }
-
-  @keyframes bounceArrow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(12px); }
-  }
-
-  /* ───── SCROLL REVEAL ───── */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -731,105 +593,28 @@
     opacity: 1;
     transform: translateY(0);
   }
-
-  /* ───── KEYFRAMES ───── */
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
     from { opacity: 0; transform: translateY(24px); }
   }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-    from { opacity: 0; }
+  @keyframes terminalFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  /* ───── GLITCH EFFECT ───── */
-  .glitch {
-    position: relative;
+  @keyframes blink {
+    50% { opacity: 0; }
   }
-  .glitch::before, .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    font-family: var(--display);
-    font-size: inherit;
-    letter-spacing: inherit;
-    color: var(--red);
-    opacity: 0;
+  @keyframes scrollGlitch {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 0.4; }
   }
-  .glitch:hover::before {
-    opacity: 0.6;
-    animation: glitch1 0.4s steps(2) infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  @keyframes bounceArrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(12px); }
   }
-  .glitch:hover::after {
-    opacity: 0.4;
-    animation: glitch2 0.5s steps(2) infinite;
-    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-    color: #ff4444;
-  }
-
-  @keyframes glitch1 {
-    0% { transform: translateX(-3px); }
-    100% { transform: translateX(3px); }
-  }
-  @keyframes glitch2 {
-    0% { transform: translateX(3px); }
-    100% { transform: translateX(-3px); }
-  }
-
-  /* ───── TERMINAL CURSOR ───── */
-  .cursor-blink {
-    display: inline-block;
-    width: 10px; height: 1.1em;
-    background: var(--red);
-    vertical-align: bottom;
-    animation: blink 1s step-end infinite;
-    margin-left: 4px;
-    opacity: 0.9;
-  }
-  @keyframes blink { 50% { opacity: 0; } }
-
-  /* ───── PROGRESS BARS ───── */
-  .skill-bars { display: flex; flex-direction: column; gap: 0.9rem; }
-
-  .skill-row { display: flex; flex-direction: column; gap: 0.3rem; }
-
-  .skill-meta {
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: #886060;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .skill-track {
-    width: 100%;
-    height: 3px;
-    background: rgba(229,0,0,0.1);
-    position: relative;
-    clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
-  }
-
-  .skill-fill {
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
-    width: 0;
-    background: linear-gradient(90deg, var(--red5), var(--red2));
-    box-shadow: 0 0 8px rgba(229,0,0,0.5);
-    transition: width 1.2s ease 0.3s;
-  }
-
-  .skill-fill.loaded { width: var(--w); }
-
-  /* ───── RESPONSIVE ───── */
   @media (max-width: 900px) {
     .hero-inner, .about-grid, .contact-wrap, .exp-grid, .timezone-wrap { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-deco { display: none; }
-    .tech-cols { grid-template-columns: repeat(2, 1fr); }
+    .terminal-window { max-width: 100%; }
     .linux-list { grid-template-columns: repeat(3, 1fr); }
     nav { padding: 1rem 1.5rem; }
     nav ul { gap: 1.2rem; }
@@ -838,13 +623,9 @@
 </style>
 </head>
 <body>
-
-<!-- Canvas BG -->
 <canvas id="bg-canvas"></canvas>
-
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">ETHICS<span>PORT</span></div>
+  <div class="nav-logo">ETHICS<span></span></div>
   <ul>
     <li><a href="#hero">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -856,26 +637,50 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="wrap">
     <div class="hero-inner">
       <div>
         <p class="hero-tag">// Cybersecurity &amp; Software Technician</p>
         <h1 class="hero-name glitch" data-text="EDWARD">
-          EDWARD<span class="red-line">ARVEN</span>
+          EDWARD<span class="purple-line">ARVEN</span>
         </h1>
         <p class="hero-subtitle">Threat Hunter · Developer · OSINT Analyst<span class="cursor-blink"></span></p>
         <a href="#contact" class="hero-cta">⟶ &nbsp;Initialize Contact</a>
       </div>
       <div class="hero-deco">
-        <div class="hex-grid" id="hexGrid"></div>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">~/profile — zsh</div>
+          </div>
+          <div class="terminal-body">
+            <div><span class="prompt">edward@gentoo</span> <span class="symbol">~</span> <span class="command">$ whoami</span></div>
+            <div class="output">edward_arven</div>
+           
+            <div><span class="prompt">edward@gentoo</span> <span class="symbol">~</span> <span class="command">$ cat role.txt</span></div>
+            <div class="output">Cybersecurity Technician</div>
+            <div class="output">Software Developer</div>
+            <div class="output">OSINT Analyst</div>
+           
+            <div><span class="prompt">edward@gentoo</span> <span class="symbol">~</span> <span class="command">$ uname -r</span></div>
+            <div class="output">Gentoo Linux / UTC+3</div>
+           
+            <div class="prompt-line">
+              <span class="prompt">edward@gentoo</span> <span class="symbol">~</span> <span class="command">$</span>
+              <span class="blinking-cursor">_</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="wrap">
     <p class="section-label reveal">// 01 — profile</p>
@@ -911,11 +716,10 @@
   </div>
 </section>
 
-<!-- EXPERTISE -->
 <section id="expertise">
   <div class="wrap">
     <p class="section-label reveal">// 02 — domains</p>
-    <h2 class="section-title reveal"><br/>Expertise</h2>
+    <h2 class="section-title reveal">Expertise</h2>
     <div class="slash-divider reveal"></div>
     <p class="section-desc reveal">Four pillars. All connected. All dangerous in the wrong hands.</p>
     <div class="exp-grid">
@@ -943,7 +747,6 @@
   </div>
 </section>
 
-<!-- TECH -->
 <section id="tech">
   <div class="wrap">
     <p class="section-label reveal">// 03 — core</p>
@@ -951,81 +754,46 @@
     <div class="slash-divider reveal"></div>
     <p class="section-desc reveal">Languages aren't just tools — they're different ways of thinking about problems.</p>
     <div class="tech-cols">
-
       <div class="tech-card reveal">
         <span class="tech-icon">🐍</span>
         <div class="tech-name">Python</div>
         <p class="tech-desc">My go-to for rapid prototyping, automation scripts, OSINT tooling, and data analysis pipelines. Powerful, expressive, and relentlessly versatile.</p>
         <span class="tech-badge">Scripting · OSINT · Automation</span>
       </div>
-
       <div class="tech-card reveal">
         <span class="tech-icon">⚡</span>
         <div class="tech-name">C++</div>
         <p class="tech-desc">For when performance is non-negotiable. System-level applications, exploit development, and anything that needs to be fast and close to the metal.</p>
         <span class="tech-badge">Systems · Performance · Low-level</span>
       </div>
-
       <div class="tech-card reveal">
         <span class="tech-icon">💠</span>
         <div class="tech-name">C#</div>
         <p class="tech-desc">Clean, structured, and enterprise-ready. Used for building robust desktop and backend applications with a focus on maintainability and strong typing.</p>
         <span class="tech-badge">Applications · Backend · .NET</span>
       </div>
-
       <div class="tech-card reveal">
         <span class="tech-icon">⚙️</span>
         <div class="tech-name">C</div>
         <p class="tech-desc">The language of operating systems. When I need full control over memory and hardware, C is where I go — no abstraction, no compromise.</p>
         <span class="tech-badge">Kernel · Embedded · Memory</span>
       </div>
-
       <div class="tech-card reveal">
         <span class="tech-icon">🌐</span>
         <div class="tech-name">JavaScript</div>
         <p class="tech-desc">Front-end interfaces, browser automation, and lightweight servers. Also a regular target in web security assessments — knowing it means breaking it.</p>
         <span class="tech-badge">Web · Frontend · Automation</span>
       </div>
-
       <div class="tech-card reveal">
         <span class="tech-icon">🔲</span>
         <div class="tech-name">HTML / CSS</div>
         <p class="tech-desc">Crafting the visual layer of the web. From semantic structure to custom interfaces, I build things that look intentional — because they are.</p>
         <span class="tech-badge">Web · UI · Structure</span>
       </div>
-
-    </div>
-
-    <!-- Skill bars -->
-    <div style="margin-top:3.5rem" class="reveal">
-      <p class="section-label" style="margin-bottom:1.4rem">// proficiency</p>
-      <div class="skill-bars">
-        <div class="skill-row">
-          <div class="skill-meta"><span>Python</span><span>90%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="--w:90%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span>C++</span><span>82%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="--w:82%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span>C#</span><span>78%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="--w:78%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span>C</span><span>75%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="--w:75%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span>JavaScript</span><span>70%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="--w:70%"></div></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- LINUX -->
 <section id="linux">
   <div class="wrap">
     <p class="section-label reveal">// 04 — systems</p>
@@ -1063,23 +831,18 @@
   </div>
 </section>
 
-<!-- TIMEZONE (NEW SECTION #5) -->
 <section id="timezone">
   <div class="wrap">
     <p class="section-label reveal">// 05 — timezone</p>
     <h2 class="section-title reveal glitch" data-text="TIMEZONE">TIMEZONE</h2>
     <div class="slash-divider reveal"></div>
     <p class="section-desc reveal">Synchronizing across the wire. My clock runs on UTC+3.</p>
-    
     <div class="timezone-wrap">
-      <!-- My Timezone -->
       <div class="tz-card reveal">
         <div class="tz-label">MY TIMEZONE</div>
         <div class="tz-time" id="my-time">00:00:00</div>
         <div class="tz-zone">UTC+3</div>
       </div>
-
-      <!-- Your Timezone -->
       <div class="tz-card reveal">
         <div class="tz-label">YOUR TIMEZONE</div>
         <div class="tz-time" id="your-time">00:00:00</div>
@@ -1089,7 +852,6 @@
   </div>
 </section>
 
-<!-- CONTACT (NOW #6) -->
 <section id="contact">
   <div class="wrap">
     <p class="section-label reveal">// 06 — contact</p>
@@ -1108,34 +870,28 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <p>© 2025 — <span>EDWARD ARVEN</span> — Built with purpose. Deployed with intent.</p>
   </div>
 </footer>
 
-<!-- SCROLL DOWN INDICATOR -->
 <div class="scroll-down">
   <div class="scroll-text">SCROLL DOWN</div>
   <div class="scroll-arrow">↓</div>
 </div>
 
 <script>
-/* ─── CANVAS ANIMATED BACKGROUND ─── */
 (function() {
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, particles = [], lines = [], frame = 0;
-
   function resize() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
   }
   resize();
   window.addEventListener('resize', resize);
-
-  /* Particles */
   for (let i = 0; i < 90; i++) {
     particles.push({
       x: Math.random() * 3000,
@@ -1146,8 +902,6 @@
       alpha: Math.random() * 0.5 + 0.1
     });
   }
-
-  /* Flowing data lines */
   for (let i = 0; i < 12; i++) {
     lines.push({
       x: Math.random() * window.innerWidth,
@@ -1158,11 +912,9 @@
       width: Math.random() * 0.8 + 0.2
     });
   }
-
-  /* Grid */
   function drawGrid(scrollY) {
     ctx.save();
-    ctx.strokeStyle = 'rgba(229,0,0,0.04)';
+    ctx.strokeStyle = 'rgba(180,0,255,0.04)';
     ctx.lineWidth = 0.5;
     const size = 60;
     const offY = scrollY * 0.1 % size;
@@ -1180,16 +932,11 @@
     }
     ctx.restore();
   }
-
   function draw() {
     frame++;
     const scrollY = window.scrollY;
-
     ctx.clearRect(0, 0, W, H);
-
     drawGrid(scrollY);
-
-    /* Particles */
     particles.forEach(p => {
       p.x += p.vx;
       p.y += p.vy;
@@ -1197,14 +944,11 @@
       if (p.x > W) p.x = 0;
       if (p.y < 0) p.y = H;
       if (p.y > H) p.y = 0;
-
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(229,0,0,${p.alpha})`;
+      ctx.fillStyle = `rgba(180,0,255,${p.alpha})`;
       ctx.fill();
     });
-
-    /* Connect nearby particles */
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -1214,14 +958,12 @@
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(229,0,0,${0.06 * (1 - dist/120)})`;
+          ctx.strokeStyle = `rgba(180,0,255,${0.07 * (1 - dist/120)})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
       }
     }
-
-    /* Falling data lines */
     lines.forEach(l => {
       l.y += l.speed;
       if (l.y > H + 200) {
@@ -1230,9 +972,9 @@
         l.alpha = Math.random() * 0.25 + 0.05;
       }
       const grad = ctx.createLinearGradient(l.x, l.y - l.len, l.x, l.y);
-      grad.addColorStop(0, 'rgba(229,0,0,0)');
-      grad.addColorStop(0.7, `rgba(229,0,0,${l.alpha})`);
-      grad.addColorStop(1, 'rgba(229,0,0,0)');
+      grad.addColorStop(0, 'rgba(180,0,255,0)');
+      grad.addColorStop(0.7, `rgba(180,0,255,${l.alpha})`);
+      grad.addColorStop(1, 'rgba(180,0,255,0)');
       ctx.beginPath();
       ctx.moveTo(l.x, l.y - l.len);
       ctx.lineTo(l.x, l.y);
@@ -1240,46 +982,12 @@
       ctx.lineWidth = l.width;
       ctx.stroke();
     });
-
-    /* Pulsing corner accents */
-    const pulse = 0.5 + 0.5 * Math.sin(frame * 0.02);
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(200, 0);
-    ctx.strokeStyle = `rgba(229,0,0,${0.15 * pulse})`;
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(0, 120);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(W, H);
-    ctx.lineTo(W - 200, H);
-    ctx.strokeStyle = `rgba(229,0,0,${0.15 * pulse})`;
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(W, H);
-    ctx.lineTo(W, H - 120);
-    ctx.stroke();
-
     requestAnimationFrame(draw);
   }
   draw();
 })();
 
-/* ─── HEX GRID POPULATE ─── */
-const hexGrid = document.getElementById('hexGrid');
-for (let i = 0; i < 25; i++) {
-  const cell = document.createElement('div');
-  cell.className = 'hex-cell';
-  cell.style.setProperty('--d', (2.5 + Math.random() * 2) + 's');
-  cell.style.setProperty('--delay', (Math.random() * 2) + 's');
-  hexGrid.appendChild(cell);
-}
-
-/* ─── SCROLL REVEAL ─── */
+// Reveal animasyonları
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver(entries => {
   entries.forEach((e, i) => {
@@ -1291,18 +999,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 reveals.forEach(el => observer.observe(el));
 
-/* ─── SKILL BAR ANIMATION ─── */
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.skill-fill').forEach(bar => bar.classList.add('loaded'));
-      skillObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.skill-bars').forEach(el => skillObserver.observe(el));
-
-/* ─── SMOOTH NAV HIGHLIGHT ─── */
+// Active nav link
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav ul a');
 window.addEventListener('scroll', () => {
@@ -1311,38 +1008,21 @@ window.addEventListener('scroll', () => {
     if (window.scrollY >= s.offsetTop - 120) current = s.id;
   });
   navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--red2)' : '';
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--p2)' : '';
   });
 });
 
-/* ─── TIMEZONE LIVE CLOCK ─── */
+// Timezone
 function updateTimezones() {
   const now = new Date();
-  
-  // My Timezone (UTC+3 fixed)
-  const myOffset = 3 * 60; // UTC+3 in minutes
+  const myOffset = 3 * 60;
   const myTime = new Date(now.getTime() + (myOffset * 60 * 1000) + (now.getTimezoneOffset() * 60 * 1000));
-  document.getElementById('my-time').textContent = myTime.toLocaleTimeString('tr-TR', { 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    second: '2-digit' 
-  });
-
-  // Your Timezone (visitor's local time)
-  const yourTime = now.toLocaleTimeString('tr-TR', { 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    second: '2-digit' 
-  });
-  document.getElementById('your-time').textContent = yourTime;
-
-  // Your timezone name
-  const tzName = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  document.getElementById('your-zone').textContent = tzName;
+  document.getElementById('my-time').textContent = myTime.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  document.getElementById('your-time').textContent = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  document.getElementById('your-zone').textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
 }
-
 setInterval(updateTimezones, 1000);
-updateTimezones(); // initial call
+updateTimezones();
 </script>
 </body>
 </html>
